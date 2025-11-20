@@ -22,6 +22,8 @@ import com.materialkolor.builder.ui.home.HomeAction.RandomColor
 import com.materialkolor.builder.ui.home.HomeAction.SelectImage
 import com.materialkolor.builder.ui.home.HomeAction.UpdateContrast
 import com.materialkolor.builder.ui.home.HomeAction.UpdatePaletteStyle
+import com.materialkolor.builder.ui.fluent2.Fluent2CustomizeSection
+import com.materialkolor.builder.ui.home.DesignSystem
 import com.materialkolor.builder.ui.home.HomeAction.UpdateSpecVersion
 import com.materialkolor.builder.ui.home.customize.CustomizeSection
 import com.materialkolor.builder.ui.home.preview.device.DeviceSection
@@ -38,23 +40,28 @@ fun PreviewCompactContent(
     dispatcher: Dispatcher<HomeAction>,
     windowSizeClass: WindowSizeClass,
     modifier: Modifier = Modifier,
+    selectedDesignSystem: DesignSystem,
 ) {
     Crossfade(selectedSection) { section ->
         when (section) {
             PreviewSection.Customize -> {
-                CustomizeSection(
-                    settings = settings,
-                    onSelectImage = dispatcher.rememberRelayOf(::SelectImage),
-                    onRandomColor = dispatcher.rememberRelay(RandomColor),
-                    openColorPicker = dispatcher.rememberRelayOf(::OpenColorPicker),
-                    onUpdatePaletteStyle = dispatcher.rememberRelayOf(::UpdatePaletteStyle),
-                    onUpdateContrast = dispatcher.rememberRelayOf(::UpdateContrast),
-                    updateSpecVersion = dispatcher.rememberRelayOf(::UpdateSpecVersion),
-                    processingImage = processingImage,
-                    windowSizeClass = windowSizeClass,
-                    toggleMaterialExpressive = {},
-                    modifier = modifier,
-                )
+                if (selectedDesignSystem == DesignSystem.MATERIAL_3) {
+                    CustomizeSection(
+                        settings = settings,
+                        onSelectImage = dispatcher.rememberRelayOf(::SelectImage),
+                        onRandomColor = dispatcher.rememberRelay(RandomColor),
+                        openColorPicker = dispatcher.rememberRelayOf(::OpenColorPicker),
+                        onUpdatePaletteStyle = dispatcher.rememberRelayOf(::UpdatePaletteStyle),
+                        onUpdateContrast = dispatcher.rememberRelayOf(::UpdateContrast),
+                        updateSpecVersion = dispatcher.rememberRelayOf(::UpdateSpecVersion),
+                        processingImage = processingImage,
+                        windowSizeClass = windowSizeClass,
+                        toggleMaterialExpressive = {},
+                        modifier = modifier,
+                    )
+                } else {
+                    Fluent2CustomizeSection()
+                }
             }
 
             PreviewSection.Preview -> {

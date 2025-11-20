@@ -109,6 +109,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.highlights)
+            implementation("io.github.compose-fluent:fluent:0.1.0-SNAPSHOT")
         }
 
         commonTest.dependencies {
