@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import com.materialkolor.builder.core.Dispatcher
 import com.materialkolor.builder.settings.model.Settings
 import com.materialkolor.builder.ui.LocalWindowSizeClass
+import com.materialkolor.builder.ui.home.DesignSystem
 import com.materialkolor.builder.ui.home.HomeAction
 import com.materialkolor.builder.ui.home.components.HomeNavRail
 
@@ -21,6 +22,7 @@ fun PreviewScreenContent(
     dispatcher: Dispatcher<HomeAction>,
     modifier: Modifier = Modifier,
     windowSizeClass: WindowSizeClass = LocalWindowSizeClass.current,
+    selectedDesignSystem: DesignSystem,
 ) {
     when (windowSizeClass.widthSizeClass) {
         WindowWidthSizeClass.Expanded -> {
@@ -29,6 +31,7 @@ fun PreviewScreenContent(
                 dispatcher = dispatcher,
                 windowSizeClass = windowSizeClass,
                 modifier = modifier,
+                selectedDesignSystem = selectedDesignSystem,
             )
         }
         WindowWidthSizeClass.Medium -> {
@@ -44,6 +47,7 @@ fun PreviewScreenContent(
                     dispatcher = dispatcher,
                     windowSizeClass = windowSizeClass,
                     modifier = modifier,
+                    selectedDesignSystem = selectedDesignSystem,
                 )
             }
         }
@@ -55,6 +59,7 @@ fun PreviewScreenContent(
                 dispatcher = dispatcher,
                 windowSizeClass = windowSizeClass,
                 modifier = modifier,
+                selectedDesignSystem = selectedDesignSystem,
             )
         }
     }
