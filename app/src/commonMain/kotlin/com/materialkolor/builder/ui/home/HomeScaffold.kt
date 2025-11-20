@@ -81,11 +81,6 @@ fun HomeScreenScaffold(
                         onClick = { selectedDesignSystem = DesignSystem.FLUENT_2 },
                         text = { Text("Fluent 2") },
                     )
-                    Tab(
-                        selected = selectedDesignSystem == DesignSystem.IOS,
-                        onClick = { selectedDesignSystem = DesignSystem.IOS },
-                        text = { Text("iOS") },
-                    )
                 }
             }
         },

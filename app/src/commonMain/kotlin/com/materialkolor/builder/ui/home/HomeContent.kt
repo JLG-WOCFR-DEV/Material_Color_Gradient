@@ -60,6 +60,8 @@ fun HomeContent(
                         processingImage = processingImage,
                         windowSizeClass = windowSizeClass,
                     )
+                } else {
+                    Fluent2CustomizeSection()
                 }
             },
         ) {

@@ -110,7 +110,6 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.highlights)
             implementation("io.github.compose-fluent:fluent:0.1.0-SNAPSHOT")
-            implementation("io.github.alexzhirkevich:compose-cupertino:0.1.0-alpha01")
         }
 
         commonTest.dependencies {
