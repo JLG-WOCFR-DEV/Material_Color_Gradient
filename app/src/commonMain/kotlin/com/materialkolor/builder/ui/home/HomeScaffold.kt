@@ -13,6 +13,8 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
@@ -54,18 +56,38 @@ fun HomeScreenScaffold(
 ) {
     var aboutDialogVisible by remember { mutableStateOf(false) }
     var selectedSection by remember { mutableStateOf(initialSection ?: PreviewSection.Customize) }
+    var selectedDesignSystem by remember { mutableStateOf(DesignSystem.MATERIAL_3) }
 
     Scaffold(
         modifier = modifier,
         snackbarHost = { AppSnackbarHost(snackbarState) },
         topBar = {
-            AppTopBar(
-                settings = options.settings,
-                toggleDarkMode = dispatcher.relay(ToggleDarkMode),
-                toggleAboutDialog = { aboutDialogVisible = true },
-                showBackButton = screen == HomeScreens.Export,
-                onBack = dispatcher.relay(HomeAction.Nav(HomeScreens.Preview)),
-            )
+            Column {
+                AppTopBar(
+                    settings = options.settings,
+                    toggleDarkMode = dispatcher.relay(ToggleDarkMode),
+                    toggleAboutDialog = { aboutDialogVisible = true },
+                    showBackButton = screen == HomeScreens.Export,
+                    onBack = dispatcher.relay(HomeAction.Nav(HomeScreens.Preview)),
+                )
+                TabRow(selectedTabIndex = selectedDesignSystem.ordinal) {
+                    Tab(
+                        selected = selectedDesignSystem == DesignSystem.MATERIAL_3,
+                        onClick = { selectedDesignSystem = DesignSystem.MATERIAL_3 },
+                        text = { Text("Material 3") },
+                    )
+                    Tab(
+                        selected = selectedDesignSystem == DesignSystem.FLUENT_2,
+                        onClick = { selectedDesignSystem = DesignSystem.FLUENT_2 },
+                        text = { Text("Fluent 2") },
+                    )
+                    Tab(
+                        selected = selectedDesignSystem == DesignSystem.IOS,
+                        onClick = { selectedDesignSystem = DesignSystem.IOS },
+                        text = { Text("iOS") },
+                    )
+                }
+            }
         },
         bottomBar = {
             AnimatedVisibility(screen == HomeScreens.Preview && windowSizeClass.widthIsCompact()) {
@@ -126,6 +148,7 @@ fun HomeScreenScaffold(
                 dispatcher = dispatcher,
                 processingImage = processingImage,
                 windowSizeClass = windowSizeClass,
+                selectedDesignSystem = selectedDesignSystem,
             )
         }
 

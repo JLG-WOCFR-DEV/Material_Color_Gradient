@@ -19,6 +19,7 @@ import com.materialkolor.builder.ui.home.HomeAction.RandomColor
 import com.materialkolor.builder.ui.home.HomeAction.SelectImage
 import com.materialkolor.builder.ui.home.HomeAction.UpdateContrast
 import com.materialkolor.builder.ui.home.HomeAction.UpdatePaletteStyle
+import com.materialkolor.builder.ui.fluent2.Fluent2CustomizeSection
 import com.materialkolor.builder.ui.home.HomeAction.UpdateSpecVersion
 import com.materialkolor.builder.ui.home.components.ContrastSelector
 import com.materialkolor.builder.ui.home.customize.CustomizeSection
@@ -46,18 +47,20 @@ fun HomeContent(
             displayOverContent = false,
             maxWidthFraction = 0.3f,
             sheetContent = {
-                CustomizeSection(
-                    settings = options.settings,
-                    onSelectImage = dispatcher.rememberRelayOf(::SelectImage),
-                    onRandomColor = dispatcher.rememberRelay(RandomColor),
-                    openColorPicker = dispatcher.rememberRelayOf(::OpenColorPicker),
-                    onUpdatePaletteStyle = dispatcher.rememberRelayOf(::UpdatePaletteStyle),
-                    onUpdateContrast = dispatcher.rememberRelayOf(::UpdateContrast),
-                    updateSpecVersion = dispatcher.rememberRelayOf(::UpdateSpecVersion),
-                    toggleMaterialExpressive = dispatcher.rememberRelay(HomeAction.ToggleExpressive),
-                    processingImage = processingImage,
-                    windowSizeClass = windowSizeClass,
-                )
+                if (selectedDesignSystem == DesignSystem.MATERIAL_3) {
+                    CustomizeSection(
+                        settings = options.settings,
+                        onSelectImage = dispatcher.rememberRelayOf(::SelectImage),
+                        onRandomColor = dispatcher.rememberRelay(RandomColor),
+                        openColorPicker = dispatcher.rememberRelayOf(::OpenColorPicker),
+                        onUpdatePaletteStyle = dispatcher.rememberRelayOf(::UpdatePaletteStyle),
+                        onUpdateContrast = dispatcher.rememberRelayOf(::UpdateContrast),
+                        updateSpecVersion = dispatcher.rememberRelayOf(::UpdateSpecVersion),
+                        toggleMaterialExpressive = dispatcher.rememberRelay(HomeAction.ToggleExpressive),
+                        processingImage = processingImage,
+                        windowSizeClass = windowSizeClass,
+                    )
+                }
             },
         ) {
             Box(
