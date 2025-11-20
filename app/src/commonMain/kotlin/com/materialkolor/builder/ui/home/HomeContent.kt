@@ -38,6 +38,7 @@ fun HomeContent(
     processingImage: Boolean,
     dispatcher: Dispatcher<HomeAction>,
     windowSizeClass: WindowSizeClass = windowSizeClass(),
+    selectedDesignSystem: DesignSystem,
 ) {
     if (windowSizeClass.widthIsExpanded()) {
         SideSheet(
@@ -60,8 +61,6 @@ fun HomeContent(
                         processingImage = processingImage,
                         windowSizeClass = windowSizeClass,
                     )
-                } else {
-                    Fluent2CustomizeSection()
                 }
             },
         ) {
@@ -77,6 +76,7 @@ fun HomeContent(
                         processingImage = processingImage,
                         dispatcher = dispatcher,
                         windowSizeClass = windowSizeClass,
+                        selectedDesignSystem = selectedDesignSystem,
                     )
                 }
 
@@ -99,6 +99,7 @@ fun HomeContent(
             processingImage = processingImage,
             dispatcher = dispatcher,
             windowSizeClass = windowSizeClass,
+            selectedDesignSystem = selectedDesignSystem,
         )
     }
 }
@@ -112,6 +113,7 @@ fun Content(
     processingImage: Boolean,
     dispatcher: Dispatcher<HomeAction>,
     windowSizeClass: WindowSizeClass = windowSizeClass(),
+    selectedDesignSystem: DesignSystem,
 ) {
     if (screen == HomeScreens.Preview) {
         PreviewScreenContent(
@@ -121,6 +123,7 @@ fun Content(
             dispatcher = dispatcher,
             processingImage = processingImage,
             windowSizeClass = windowSizeClass,
+            selectedDesignSystem = selectedDesignSystem,
         )
     } else {
         ExportScreenContent(

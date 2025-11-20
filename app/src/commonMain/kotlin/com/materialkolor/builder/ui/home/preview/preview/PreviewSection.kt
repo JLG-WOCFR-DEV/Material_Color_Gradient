@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.settings.model.Settings
 import com.materialkolor.builder.ui.fluent2.Fluent2Screen
+import com.materialkolor.builder.ui.cupertino.CupertinoScreen
 import com.materialkolor.builder.ui.home.DesignSystem
 import com.materialkolor.builder.ui.home.preview.device.DeviceSection
 import com.materialkolor.builder.ui.home.preview.gallery.GallerySection
@@ -65,8 +66,10 @@ fun PreviewSection(
 
                 Spacer(modifier = Modifier.height(200.dp))
             }
-        } else {
+        } else if (selectedDesignSystem == DesignSystem.FLUENT_2) {
             Fluent2Screen(settings)
+        } else {
+            CupertinoScreen(settings)
         }
     }
 }

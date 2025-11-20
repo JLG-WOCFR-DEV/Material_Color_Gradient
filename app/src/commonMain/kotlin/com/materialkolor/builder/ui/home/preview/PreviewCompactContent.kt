@@ -59,8 +59,6 @@ fun PreviewCompactContent(
                         toggleMaterialExpressive = {},
                         modifier = modifier,
                     )
-                } else {
-                    Fluent2CustomizeSection()
                 }
             }
 
