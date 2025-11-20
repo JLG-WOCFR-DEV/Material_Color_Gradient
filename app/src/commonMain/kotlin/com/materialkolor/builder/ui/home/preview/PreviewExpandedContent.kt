@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.materialkolor.builder.core.Dispatcher
 import com.materialkolor.builder.settings.model.Settings
+import com.materialkolor.builder.ui.home.DesignSystem
 import com.materialkolor.builder.ui.home.HomeAction
 import com.materialkolor.builder.ui.home.HomeAction.CopyColor
 import com.materialkolor.builder.ui.home.preview.preview.PreviewSection
@@ -17,6 +18,7 @@ fun PreviewExpandedContent(
     dispatcher: Dispatcher<HomeAction>,
     windowSizeClass: WindowSizeClass,
     modifier: Modifier = Modifier,
+    selectedDesignSystem: DesignSystem,
 ) {
     Row(
         modifier = modifier.fillMaxSize(),
@@ -26,6 +28,7 @@ fun PreviewExpandedContent(
             onCopyColor = dispatcher.rememberRelayOf(::CopyColor),
             modifier = Modifier.weight(1f),
             windowSizeClass = windowSizeClass,
+            selectedDesignSystem = selectedDesignSystem,
         )
     }
 }
