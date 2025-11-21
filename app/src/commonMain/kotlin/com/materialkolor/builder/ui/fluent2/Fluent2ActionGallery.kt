@@ -18,7 +18,7 @@ import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
 import io.github.composefluent.component.Button
-import io.github.composefluent.component.TextButton
+import io.github.composefluent.component.HyperlinkButton
 
 @Composable
 fun Fluent2ActionGallery(
@@ -130,7 +130,7 @@ private fun Fluent2CommonButtons(
                 Button(onClick = {}) {
                     Text("Button")
                 }
-                TextButton(onClick = {}) {
+                HyperlinkButton(onClick = {}) {
                     Text("Text Button")
                 }
             }

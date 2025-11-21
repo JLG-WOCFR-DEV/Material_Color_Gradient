@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidthIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,7 +20,7 @@ import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefault
 import io.github.composefluent.component.CheckBox
 import io.github.composefluent.component.RadioButton
 import io.github.composefluent.component.Slider
-import io.github.composefluent.component.Switch
+//import io.github.composefluent.component.ToggleSwitch
 
 @Composable
 fun Fluent2SelectionGallery(
@@ -45,9 +46,9 @@ fun Fluent2SelectionGallery(
         GalleryContainerChild(title = "Radio buttons", infoUrl = "") {
             Fluent2RadioButtonsDemo(minWidth, width, itemPadding)
         }
-        GalleryContainerChild(title = "Switches", infoUrl = "") {
-            Fluent2SwitchesDemo(minWidth, width)
-        }
+//        GalleryContainerChild(title = "Switches", infoUrl = "") {
+//            Fluent2SwitchesDemo(minWidth, width)
+//        }
         GalleryContainerChild(title = "Menus", infoUrl = "") {
             Fluent2MenuDemo(minWidth, width)
         }
@@ -150,7 +151,7 @@ private fun Fluent2CheckboxesDemo(
             var checked by remember { mutableStateOf(false) }
             CheckBox(
                 checked = checked,
-                onValueChange = { checked = it },
+                onCheckStateChange = { checked = it },
                 label = "Checkbox"
             )
         }
@@ -180,27 +181,27 @@ private fun Fluent2RadioButtonsDemo(
     }
 }
 
-@Composable
-private fun Fluent2SwitchesDemo(
-    minWidth: Dp,
-    width: Dp,
-) {
-    OutlinedCard {
-        Column(
-            modifier = Modifier
-                .requiredWidthIn(minWidth)
-                .width(width)
-                .padding(32.dp),
-        ) {
-            var checked by remember { mutableStateOf(false) }
-            Switch(
-                checked = checked,
-                onValueChange = { checked = it },
-                label = "Switch"
-            )
-        }
-    }
-}
+//@Composable
+//private fun Fluent2SwitchesDemo(
+//    minWidth: Dp,
+//    width: Dp,
+//) {
+//    OutlinedCard {
+//        Column(
+//            modifier = Modifier
+//                .requiredWidthIn(minWidth)
+//                .width(width)
+//                .padding(32.dp),
+//        ) {
+//            var checked by remember { mutableStateOf(false) }
+//            ToggleSwitch(
+//                checked = checked,
+//                onCheckedChange = { checked = it },
+//                label = "Switch"
+//            )
+//        }
+//    }
+//}
 
 @Composable
 private fun Fluent2SlidersDemo(

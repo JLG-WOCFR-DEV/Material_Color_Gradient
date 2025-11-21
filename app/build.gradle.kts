@@ -25,6 +25,8 @@ buildkonfig {
 }
 
 kotlin {
+    jvmToolchain(21)
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         outputModuleName.set("app")
@@ -109,8 +111,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.highlights)
-            implementation("io.github.compose-fluent:fluent:0.2.2")
-            implementation("io.github.alexzhirkevich:compose-cupertino:0.1.0-alpha04")
+            implementation("io.github.compose-fluent:fluent:v0.1.0")
+            implementation("io.github.alexzhirkevich:cupertino:0.1.0-alpha04")
         }
 
         commonTest.dependencies {

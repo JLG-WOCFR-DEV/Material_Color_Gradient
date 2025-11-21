@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-import io.github.composefluent.component.TextField
+//import io.github.composefluent.component.TextField
 
 @Composable
 fun Fluent2TextGallery(
@@ -56,19 +56,19 @@ private fun Fluent2TextFields(
                 .width(width)
                 .padding(16.dp),
         ) {
-            var text by remember { mutableStateOf("") }
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                label = { Text("Text Field") },
-            )
-            var text2 by remember { mutableStateOf("") }
-            TextField(
-                value = text2,
-                onValueChange = { text2 = it },
-                label = { Text("Outlined Text Field") },
-                isError = true,
-            )
+//            var text by remember { mutableStateOf("") }
+//            TextField(
+//                value = text,
+//                onValueChange = { text = it },
+//                label = { Text("Text Field") },
+//            )
+//            var text2 by remember { mutableStateOf("") }
+//            TextField(
+//                value = text2,
+//                onValueChange = { text2 = it },
+//                label = { Text("Outlined Text Field") },
+//                isError = true,
+//            )
         }
     }
 }
