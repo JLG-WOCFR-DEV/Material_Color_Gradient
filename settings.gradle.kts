@@ -26,6 +26,8 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        maven("https://central.sonatype.com/repository/maven-snapshots/")
+        maven("https://jitpack.io")
     }
 }
 
