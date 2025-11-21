@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-import io.github.composefluent.ui.FluentTab
+import io.github.composefluent.component.Tab
 
 @Composable
 fun Fluent2NavigationGallery(
@@ -184,7 +184,7 @@ private fun Fluent2Tabs(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            FluentTab(
+            Tab(
                 items = listOf("Video", "Photo", "Audio"),
                 selectedIndex = 0,
                 onIndexChange = {}

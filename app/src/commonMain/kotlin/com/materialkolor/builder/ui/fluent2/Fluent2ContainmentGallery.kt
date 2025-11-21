@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-import io.github.composefluent.ui.FluentCard
+import io.github.composefluent.component.Card
 
 @Composable
 fun Fluent2ContainmentGallery(
@@ -105,7 +105,7 @@ private fun Fluent2CardsDemo(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            FluentCard {
+            Card {
                 Text("Fluent Card")
             }
         }

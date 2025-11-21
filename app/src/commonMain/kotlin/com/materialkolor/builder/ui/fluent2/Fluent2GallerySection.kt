@@ -12,7 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.settings.model.Settings
-import io.github.composefluent.ui.FluentTheme
+import io.github.composefluent.theme.FluentTheme
 
 @Composable
 fun Fluent2GallerySection(
@@ -27,10 +27,7 @@ fun Fluent2GallerySection(
     var selectionExpanded by remember { mutableStateOf(defaultExpanded) }
     var navigationExpanded by remember { mutableStateOf(defaultExpanded) }
 
-    FluentTheme(
-        seedColor = settings.colors.seed,
-        isDark = settings.isDarkMode,
-    ) {
+    FluentTheme {
         Column(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier.fillMaxWidth(),

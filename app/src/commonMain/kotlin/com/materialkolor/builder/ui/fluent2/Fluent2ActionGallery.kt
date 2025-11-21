@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-import io.github.composefluent.ui.FluentButton
-import io.github.composefluent.ui.FluentTextButton
+import io.github.composefluent.component.Button
+import io.github.composefluent.component.TextButton
 
 @Composable
 fun Fluent2ActionGallery(
@@ -127,10 +127,10 @@ private fun Fluent2CommonButtons(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                FluentButton(onClick = {}) {
+                Button(onClick = {}) {
                     Text("Button")
                 }
-                FluentTextButton(onClick = {}) {
+                TextButton(onClick = {}) {
                     Text("Text Button")
                 }
             }

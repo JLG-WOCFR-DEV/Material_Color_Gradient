@@ -16,10 +16,10 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-import io.github.composefluent.ui.FluentCheckBox
-import io.github.composefluent.ui.FluentRadioButton
-import io.github.composefluent.ui.FluentSlider
-import io.github.composefluent.ui.FluentSwitch
+import io.github.composefluent.component.CheckBox
+import io.github.composefluent.component.RadioButton
+import io.github.composefluent.component.Slider
+import io.github.composefluent.component.Switch
 
 @Composable
 fun Fluent2SelectionGallery(
@@ -148,9 +148,9 @@ private fun Fluent2CheckboxesDemo(
                 .padding(itemPadding),
         ) {
             var checked by remember { mutableStateOf(false) }
-            FluentCheckBox(
+            CheckBox(
                 checked = checked,
-                onCheckedChange = { checked = it },
+                onValueChange = { checked = it },
                 label = "Checkbox"
             )
         }
@@ -171,7 +171,7 @@ private fun Fluent2RadioButtonsDemo(
                 .padding(itemPadding),
         ) {
             var selected by remember { mutableStateOf(false) }
-            FluentRadioButton(
+            RadioButton(
                 selected = selected,
                 onClick = { selected = !selected },
                 label = "Radio button"
@@ -193,9 +193,9 @@ private fun Fluent2SwitchesDemo(
                 .padding(32.dp),
         ) {
             var checked by remember { mutableStateOf(false) }
-            FluentSwitch(
+            Switch(
                 checked = checked,
-                onCheckedChange = { checked = it },
+                onValueChange = { checked = it },
                 label = "Switch"
             )
         }
@@ -215,7 +215,7 @@ private fun Fluent2SlidersDemo(
                 .padding(32.dp),
         ) {
             var value by remember { mutableStateOf(0.5f) }
-            FluentSlider(
+            Slider(
                 value = value,
                 onValueChange = { value = it },
             )
