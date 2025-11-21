@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-import io.github.composefluent.component.CircularProgressIndicator
+import io.github.composefluent.component.ProgressRing
 
 @Composable
 fun Fluent2CommunicationGallery(
@@ -106,7 +106,7 @@ private fun Fluent2ProgressIndicators(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            CircularProgressIndicator()
+            ProgressRing()
         }
     }
 }

@@ -12,7 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.settings.model.Settings
-import io.github.composefluent.theme.FluentTheme
+import io.github.composefluent.FluentTheme
 
 @Composable
 fun Fluent2GallerySection(
