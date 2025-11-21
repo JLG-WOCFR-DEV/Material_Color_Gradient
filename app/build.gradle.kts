@@ -25,7 +25,7 @@ buildkonfig {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(25)
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
