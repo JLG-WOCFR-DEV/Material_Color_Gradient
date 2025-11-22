@@ -17,8 +17,19 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Icon
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import io.github.composefluent.component.Button
 import io.github.composefluent.component.HyperlinkButton
+import io.github.composefluent.component.PillButton
+import io.github.composefluent.component.SegmentedButton
+import io.github.composefluent.component.SubtleButton
 
 @Composable
 fun Fluent2ActionGallery(
@@ -65,7 +76,13 @@ private fun Fluent2SegmentedButtons(
                 .width(width)
                 .padding(itemPadding),
         ) {
-            Text("N/A")
+            var checked by remember { mutableStateOf(false) }
+            SegmentedButton(
+                checked = checked,
+                onCheckedChanged = { checked = it }
+            ) {
+                Text("Segmented")
+            }
         }
     }
 }
@@ -85,7 +102,11 @@ private fun Fluent2IconButtons(
                 .width(width)
                 .padding(itemPadding),
         ) {
-            Text("N/A")
+            SubtleButton(
+                onClick = {},
+            ) {
+                Icon(Icons.Default.Settings, contentDescription = null)
+            }
         }
     }
 }
@@ -105,7 +126,14 @@ private fun Fluent2FloatingActionButtons(
                 .width(width)
                 .padding(itemPadding),
         ) {
-            Text("N/A")
+            var selected by remember { mutableStateOf(false) }
+            PillButton(
+                selected = selected,
+                onSelectedChanged = { selected = it }
+            ) {
+                Icon(Icons.Default.Add, contentDescription = null)
+                Text("New Item")
+            }
         }
     }
 }

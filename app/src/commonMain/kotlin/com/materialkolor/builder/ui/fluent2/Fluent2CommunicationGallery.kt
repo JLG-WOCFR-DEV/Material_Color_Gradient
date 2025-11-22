@@ -14,6 +14,9 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
+import io.github.composefluent.component.Badge
+import io.github.composefluent.component.InfoBar
+import io.github.composefluent.component.InfoBarSeverity
 import io.github.composefluent.component.ProgressRing
 
 @Composable
@@ -68,7 +71,11 @@ private fun Fluent2SnackbarButton(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            Text("N/A")
+            InfoBar(
+                title = { Text("Success") },
+                message = { Text("This is an InfoBar") },
+                severity = InfoBarSeverity.Success,
+            )
         }
     }
 }
@@ -87,7 +94,7 @@ private fun Fluent2Badges(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            Text("N/A")
+            Badge(backgroundColor = androidx.compose.ui.graphics.Color.Red) { Text("5") }
         }
     }
 }

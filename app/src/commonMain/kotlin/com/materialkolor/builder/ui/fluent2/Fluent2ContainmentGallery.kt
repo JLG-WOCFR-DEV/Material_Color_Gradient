@@ -11,10 +11,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-//import io.github.composefluent.component.Card
+import io.github.composefluent.component.Button
+import io.github.composefluent.component.ContentDialog
 
 @Composable
 fun Fluent2ContainmentGallery(
@@ -67,7 +72,7 @@ private fun Fluent2DividersDemo(
                 .padding(32.dp),
             contentAlignment = Alignment.Center,
         ) {
-            Text("N/A")
+            androidx.compose.material3.HorizontalDivider()
         }
     }
 }
@@ -86,7 +91,20 @@ private fun Fluent2DialogsDemo(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            Text("N/A")
+            var showDialog by remember { mutableStateOf(false) }
+            Button(onClick = { showDialog = true }) {
+                Text("Show Dialog")
+            }
+
+            if (showDialog) {
+                ContentDialog(
+                    visible = showDialog,
+                    title = "Dialog Title",
+                    content = { Text("This is a dialog content.") },
+                    primaryButtonText = "OK",
+                    onButtonClick = { showDialog = false }
+                )
+            }
         }
     }
 }
@@ -105,9 +123,10 @@ private fun Fluent2CardsDemo(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-//            Card {
-//                Text("Fluent Card")
-//            }
+            // Card { Text("Fluent Card Content", modifier = Modifier.padding(16.dp)) }
+            Box(modifier = Modifier.padding(16.dp)) {
+                 Text("Fluent Card Content")
+            }
         }
     }
 }
