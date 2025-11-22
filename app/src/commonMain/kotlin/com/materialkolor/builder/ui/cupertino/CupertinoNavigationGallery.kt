@@ -14,6 +14,10 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 @Composable
 fun CupertinoNavigationGallery(
@@ -53,7 +57,12 @@ private fun CupertinoTabs(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            Text("Tabs Missing")
+            var selected by remember { mutableStateOf(0) }
+            CupertinoTabsStub(
+                selected = selected,
+                onSelected = { selected = it },
+                titles = listOf("Video", "Photo", "Audio")
+            )
         }
     }
 }

@@ -123,7 +123,7 @@ private fun Fluent2CardsDemo(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            // Card { Text("Fluent Card Content", modifier = Modifier.padding(16.dp)) }
+            // Using Box as placeholder for Card if unresolved
             Box(modifier = Modifier.padding(16.dp)) {
                  Text("Fluent Card Content")
             }

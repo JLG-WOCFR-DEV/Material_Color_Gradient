@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
+import androidx.compose.foundation.layout.padding
 
 @Composable
 fun CupertinoContainmentGallery(
@@ -53,7 +54,9 @@ private fun CupertinoCardsDemo(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            Text("Card Missing")
+            CupertinoCardStub {
+                Text("Cupertino Card", modifier = Modifier.padding(16.dp))
+            }
         }
     }
 }

@@ -94,15 +94,6 @@ private fun Fluent2TopAppBars(
             contentAlignment = Alignment.Center,
         ) {
             Text("CommandBar N/A")
-            /*
-            var expanded by remember { mutableStateOf(false) }
-            CommandBar(
-                expanded = expanded,
-                onExpandedChanged = { expanded = it }
-            ) {
-                Text("CommandBar Content")
-            }
-            */
         }
     }
 }

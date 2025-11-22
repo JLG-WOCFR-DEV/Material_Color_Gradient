@@ -86,7 +86,12 @@ private fun CupertinoRadioButtonsDemo(
                 .width(width)
                 .padding(itemPadding),
         ) {
-            Text("RadioButton Missing")
+            var selected by remember { mutableStateOf(false) }
+            CupertinoRadioButtonStub(
+                selected = selected,
+                onClick = { selected = !selected },
+                label = "Radio Button"
+            )
         }
     }
 }
