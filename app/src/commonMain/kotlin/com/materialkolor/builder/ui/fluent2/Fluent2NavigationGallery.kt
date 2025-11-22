@@ -11,10 +11,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-//import io.github.composefluent.component.Tab
+import io.github.composefluent.component.CommandBar
 
 @Composable
 fun Fluent2NavigationGallery(
@@ -89,7 +93,16 @@ private fun Fluent2TopAppBars(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            Text("N/A")
+            Text("CommandBar N/A")
+            /*
+            var expanded by remember { mutableStateOf(false) }
+            CommandBar(
+                expanded = expanded,
+                onExpandedChanged = { expanded = it }
+            ) {
+                Text("CommandBar Content")
+            }
+            */
         }
     }
 }
@@ -184,11 +197,7 @@ private fun Fluent2Tabs(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-//            Tab(
-//                items = listOf("Video", "Photo", "Audio"),
-//                selectedIndex = 0,
-//                onIndexChange = {}
-//            )
+            Text("Tabs not implemented")
         }
     }
 }

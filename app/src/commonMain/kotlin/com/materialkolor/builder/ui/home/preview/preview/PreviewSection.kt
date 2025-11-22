@@ -58,7 +58,7 @@ fun PreviewSection(
                     )
                 }
 
-                GallerySection()
+                GallerySection(designSystem = selectedDesignSystem)
 
                 PreviewSectionContainer(title = "Palettes", initialExpanded = false) {
                     PaletteSection()

@@ -72,6 +72,7 @@ fun PreviewCompactContent(
                 val isCompact = windowSizeClass.widthIsCompact()
                 WrappedContent {
                     GallerySection(
+                        designSystem = selectedDesignSystem,
                         showTitle = false,
                         defaultExpanded = !isCompact,
                         modifier = Modifier.padding(vertical = 16.dp),

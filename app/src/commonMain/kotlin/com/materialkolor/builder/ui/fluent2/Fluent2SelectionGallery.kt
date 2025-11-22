@@ -17,11 +17,14 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
+import io.github.composefluent.component.CalendarView
 import io.github.composefluent.component.CheckBox
+import io.github.composefluent.component.MenuBar
+import io.github.composefluent.component.PillButton
 import io.github.composefluent.component.RadioButton
 import io.github.composefluent.component.Slider
-//import io.github.composefluent.component.ToggleSwitch
 
+@OptIn(io.github.composefluent.ExperimentalFluentApi::class)
 @Composable
 fun Fluent2SelectionGallery(
     expanded: Boolean,
@@ -46,9 +49,9 @@ fun Fluent2SelectionGallery(
         GalleryContainerChild(title = "Radio buttons", infoUrl = "") {
             Fluent2RadioButtonsDemo(minWidth, width, itemPadding)
         }
-//        GalleryContainerChild(title = "Switches", infoUrl = "") {
-//            Fluent2SwitchesDemo(minWidth, width)
-//        }
+        GalleryContainerChild(title = "Switches", infoUrl = "") {
+            Fluent2SwitchesDemo(minWidth, width)
+        }
         GalleryContainerChild(title = "Menus", infoUrl = "") {
             Fluent2MenuDemo(minWidth, width)
         }
@@ -82,6 +85,7 @@ private fun Fluent2TimePickerDemo(
     }
 }
 
+@OptIn(io.github.composefluent.ExperimentalFluentApi::class)
 @Composable
 private fun Fluent2DatePickerDemo(
     minWidth: Dp,
@@ -95,7 +99,7 @@ private fun Fluent2DatePickerDemo(
                 .width(width)
                 .padding(itemPadding),
         ) {
-            Text("N/A")
+            CalendarView(onChoose = {})
         }
     }
 }
@@ -112,7 +116,9 @@ private fun Fluent2MenuDemo(
                 .width(width)
                 .padding(32.dp),
         ) {
-            Text("N/A")
+            MenuBar {
+                Text("Menu")
+            }
         }
     }
 }
@@ -130,7 +136,13 @@ private fun Fluent2ChipsDemo(
                 .width(width)
                 .padding(itemPadding),
         ) {
-            Text("N/A")
+            var selected by remember { mutableStateOf(false) }
+            PillButton(
+                selected = selected,
+                onSelectedChanged = { selected = it }
+            ) {
+                Text("Chip")
+            }
         }
     }
 }
@@ -181,27 +193,23 @@ private fun Fluent2RadioButtonsDemo(
     }
 }
 
-//@Composable
-//private fun Fluent2SwitchesDemo(
-//    minWidth: Dp,
-//    width: Dp,
-//) {
-//    OutlinedCard {
-//        Column(
-//            modifier = Modifier
-//                .requiredWidthIn(minWidth)
-//                .width(width)
-//                .padding(32.dp),
-//        ) {
-//            var checked by remember { mutableStateOf(false) }
-//            ToggleSwitch(
-//                checked = checked,
-//                onCheckedChange = { checked = it },
-//                label = "Switch"
-//            )
-//        }
-//    }
-//}
+@Composable
+private fun Fluent2SwitchesDemo(
+    minWidth: Dp,
+    width: Dp,
+) {
+    OutlinedCard {
+        Column(
+            modifier = Modifier
+                .requiredWidthIn(minWidth)
+                .width(width)
+                .padding(32.dp),
+        ) {
+            var checked by remember { mutableStateOf(false) }
+            Text("Switch N/A")
+        }
+    }
+}
 
 @Composable
 private fun Fluent2SlidersDemo(

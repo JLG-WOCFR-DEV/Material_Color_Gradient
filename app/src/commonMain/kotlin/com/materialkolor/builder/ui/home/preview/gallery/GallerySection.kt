@@ -23,15 +23,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.materialkolor.builder.ui.cupertino.CupertinoActionGallery
+import com.materialkolor.builder.ui.cupertino.CupertinoCommunicationGallery
+import com.materialkolor.builder.ui.cupertino.CupertinoContainmentGallery
+import com.materialkolor.builder.ui.cupertino.CupertinoNavigationGallery
+import com.materialkolor.builder.ui.cupertino.CupertinoSelectionGallery
+import com.materialkolor.builder.ui.cupertino.CupertinoTextGallery
+import com.materialkolor.builder.ui.fluent2.Fluent2ActionGallery
+import com.materialkolor.builder.ui.fluent2.Fluent2CommunicationGallery
+import com.materialkolor.builder.ui.fluent2.Fluent2ContainmentGallery
+import com.materialkolor.builder.ui.fluent2.Fluent2NavigationGallery
+import com.materialkolor.builder.ui.fluent2.Fluent2SelectionGallery
+import com.materialkolor.builder.ui.fluent2.Fluent2TextGallery
+import com.materialkolor.builder.ui.home.DesignSystem
 import com.materialkolor.builder.ui.home.preview.gallery.sections.ActionGallery
 import com.materialkolor.builder.ui.home.preview.gallery.sections.CommunicationGallery
 import com.materialkolor.builder.ui.home.preview.gallery.sections.ContainmentGallery
 import com.materialkolor.builder.ui.home.preview.gallery.sections.NavigationGallery
 import com.materialkolor.builder.ui.home.preview.gallery.sections.SelectionGallery
 import com.materialkolor.builder.ui.home.preview.gallery.sections.TextGallery
+import io.github.alexzhirkevich.cupertino.theme.CupertinoTheme
+import io.github.composefluent.FluentTheme
 
 @Composable
 fun GallerySection(
+    designSystem: DesignSystem,
     modifier: Modifier = Modifier,
     defaultExpanded: Boolean = true,
     showTitle: Boolean = true,
@@ -89,38 +105,136 @@ fun GallerySection(
             verticalArrangement = Arrangement.spacedBy(16.dp),
             modifier = modifier.fillMaxWidth(),
         ) {
-            ActionGallery(
-                expanded = actionExpanded,
-                toggle = { actionExpanded = it },
-                width = 450.dp,
-            )
+            when (designSystem) {
+                DesignSystem.MATERIAL_3 -> {
+                    ActionGallery(
+                        expanded = actionExpanded,
+                        toggle = { actionExpanded = it },
+                        width = 450.dp,
+                    )
 
-            TextGallery(
-                expanded = textExpanded,
-                toggle = { textExpanded = it },
-                width = 450.dp,
-            )
+                    TextGallery(
+                        expanded = textExpanded,
+                        toggle = { textExpanded = it },
+                        width = 450.dp,
+                    )
 
-            CommunicationGallery(
-                expanded = communicationExpanded,
-                toggle = { communicationExpanded = it },
-            )
+                    CommunicationGallery(
+                        expanded = communicationExpanded,
+                        toggle = { communicationExpanded = it },
+                    )
 
-            ContainmentGallery(
-                expanded = containmentExpanded,
-                toggle = { containmentExpanded = it },
-            )
+                    ContainmentGallery(
+                        expanded = containmentExpanded,
+                        toggle = { containmentExpanded = it },
+                    )
 
-            SelectionGallery(
-                expanded = selectionExpanded,
-                toggle = { selectionExpanded = it },
-                width = 500.dp,
-            )
+                    SelectionGallery(
+                        expanded = selectionExpanded,
+                        toggle = { selectionExpanded = it },
+                        width = 500.dp,
+                    )
 
-            NavigationGallery(
-                expanded = navigationExpanded,
-                toggle = { navigationExpanded = it },
-            )
+                    NavigationGallery(
+                        expanded = navigationExpanded,
+                        toggle = { navigationExpanded = it },
+                    )
+                }
+
+                DesignSystem.FLUENT_2 -> {
+                    FluentTheme {
+                        Fluent2ActionGallery(
+                            expanded = actionExpanded,
+                            toggle = { actionExpanded = it },
+                            width = 450.dp,
+                        )
+                    }
+
+                    FluentTheme {
+                        Fluent2TextGallery(
+                            expanded = textExpanded,
+                            toggle = { textExpanded = it },
+                            width = 450.dp,
+                        )
+                    }
+
+                    FluentTheme {
+                        Fluent2CommunicationGallery(
+                            expanded = communicationExpanded,
+                            toggle = { communicationExpanded = it },
+                        )
+                    }
+
+                    FluentTheme {
+                        Fluent2ContainmentGallery(
+                            expanded = containmentExpanded,
+                            toggle = { containmentExpanded = it },
+                        )
+                    }
+
+                    FluentTheme {
+                        Fluent2SelectionGallery(
+                            expanded = selectionExpanded,
+                            toggle = { selectionExpanded = it },
+                            width = 500.dp,
+                        )
+                    }
+
+                    FluentTheme {
+                        Fluent2NavigationGallery(
+                            expanded = navigationExpanded,
+                            toggle = { navigationExpanded = it },
+                        )
+                    }
+                }
+
+                DesignSystem.IOS -> {
+                    CupertinoTheme {
+                        CupertinoActionGallery(
+                            expanded = actionExpanded,
+                            toggle = { actionExpanded = it },
+                            width = 450.dp,
+                        )
+                    }
+
+                    CupertinoTheme {
+                        CupertinoTextGallery(
+                            expanded = textExpanded,
+                            toggle = { textExpanded = it },
+                            width = 450.dp,
+                        )
+                    }
+
+                    CupertinoTheme {
+                        CupertinoCommunicationGallery(
+                            expanded = communicationExpanded,
+                            toggle = { communicationExpanded = it },
+                        )
+                    }
+
+                    CupertinoTheme {
+                        CupertinoContainmentGallery(
+                            expanded = containmentExpanded,
+                            toggle = { containmentExpanded = it },
+                        )
+                    }
+
+                    CupertinoTheme {
+                        CupertinoSelectionGallery(
+                            expanded = selectionExpanded,
+                            toggle = { selectionExpanded = it },
+                            width = 500.dp,
+                        )
+                    }
+
+                    CupertinoTheme {
+                        CupertinoNavigationGallery(
+                            expanded = navigationExpanded,
+                            toggle = { navigationExpanded = it },
+                        )
+                    }
+                }
+            }
         }
     }
 }

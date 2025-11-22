@@ -14,7 +14,6 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
-//import io.github.alexzhirkevich.cupertino.CupertinoTabBar
 
 @Composable
 fun CupertinoNavigationGallery(
@@ -54,17 +53,7 @@ private fun CupertinoTabs(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-//            CupertinoTabBar {
-//                tab("Video") {
-//                    // Screen content
-//                }
-//                tab("Photo") {
-//                    // Screen content
-//                }
-//                tab("Audio") {
-//                    // Screen content
-//                }
-//            }
+            Text("Tabs Missing")
         }
     }
 }
