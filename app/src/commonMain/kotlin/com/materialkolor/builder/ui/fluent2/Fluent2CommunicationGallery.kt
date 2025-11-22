@@ -14,9 +14,12 @@ import androidx.compose.ui.unit.dp
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainer
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerChild
 import com.materialkolor.builder.ui.home.preview.gallery.GalleryContainerDefaults
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import io.github.composefluent.component.Badge
 import io.github.composefluent.component.InfoBar
 import io.github.composefluent.component.InfoBarSeverity
+import io.github.composefluent.component.ProgressBar
 import io.github.composefluent.component.ProgressRing
 
 @Composable
@@ -113,7 +116,13 @@ private fun Fluent2ProgressIndicators(
                 .padding(boxPadding),
             contentAlignment = Alignment.Center,
         ) {
-            ProgressRing()
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
+                ProgressRing()
+                ProgressBar()
+            }
         }
     }
 }
